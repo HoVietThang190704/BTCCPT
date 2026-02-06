@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="Css/signin.css">
+</head>
+<body>
+    <div class="signin-container">
+        <div class="signin-box">
+            <h1>Đăng Nhập</h1>
+            <form id="signinForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mật khẩu:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="btn-signin">Đăng Nhập</button>
+            </form>
+
+            <div class="signin-footer">
+                <p>Chưa có tài khoản? <a href="signup.html">Đăng ký tại đây</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../controller/signinController.js"></script>
+</body>
+</html>
