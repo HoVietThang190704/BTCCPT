@@ -6,6 +6,40 @@
     return vnd.toLocaleString("vi-VN") + " ₫";
   }
 
+  function showProductDetail(product) {
+    const detailSection = document.getElementById("product-detail");
+    if (!detailSection) return;
+
+    detailSection.classList.add("has-selection");
+
+    const imgEl = detailSection.querySelector("#detail-image");
+    const nameEl = detailSection.querySelector("#detail-name");
+    const descEl = detailSection.querySelector("#detail-desc");
+    const categoryEl = detailSection.querySelector("#detail-category");
+    const priceEl = detailSection.querySelector("#detail-price");
+
+    if (imgEl) {
+      imgEl.src = product.image;
+      imgEl.alt = product.name;
+    }
+    if (nameEl) nameEl.textContent = product.name;
+    if (descEl) descEl.textContent = product.description;
+    if (categoryEl) categoryEl.textContent = product.category;
+    if (priceEl) priceEl.textContent = formatCurrency(product.price);
+  }
+
+  function initDetailClose() {
+    const detailSection = document.getElementById("product-detail");
+    if (!detailSection) return;
+
+    const btnClose = detailSection.querySelector("#detail-close");
+    if (btnClose) {
+      btnClose.addEventListener("click", function () {
+        detailSection.classList.remove("has-selection");
+      });
+    }
+  }
+
   function renderProducts(list) {
     const container = document.getElementById("product-list");
     const countEl = document.getElementById("product-count");
@@ -39,6 +73,10 @@
           <button class="btn-buy" type="button">Thêm vào giỏ</button>
         </div>
       `;
+
+      card.addEventListener("click", function () {
+        showProductDetail(p);
+      });
 
       container.appendChild(card);
     });
@@ -96,6 +134,7 @@
     populateCategories();
     renderProducts(ProductModel.getAll());
     initFilters();
+    initDetailClose();
   }
 
   document.addEventListener("DOMContentLoaded", init);

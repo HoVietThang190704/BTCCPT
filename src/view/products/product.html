@@ -12,3 +12,81 @@
         <div class="nav-container">
             <a class="nav-brand" href="../home.html">MySite</a>
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-wrapper">
+        <section class="product-hero">
+            <div>
+                <h1>Danh sách sản phẩm</h1>
+                <p>Khám phá các sản phẩm nổi bật dành cho học tập, làm việc và giải trí.</p>
+            </div>
+            <div class="product-summary">
+                <span><strong id="product-count">0</strong> sản phẩm</span>
+            </div>
+        </section>
+
+        <section class="product-toolbar">
+            <div class="toolbar-item">
+                <label for="search-input">Tìm kiếm</label>
+                <input id="search-input" type="text" placeholder="Nhập tên hoặc mô tả sản phẩm...">
+            </div>
+            <div class="toolbar-item">
+                <label for="category-filter">Danh mục</label>
+                <select id="category-filter">
+                    <option value="all">Tất cả danh mục</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="product-list" class="product-grid">
+            <!-- Products will be rendered here by productController.js -->
+        </section>
+
+        <section id="product-detail" class="product-detail">
+            <div class="product-detail-placeholder">
+                Chọn một sản phẩm trong danh sách để xem chi tiết.
+            </div>
+            <div class="product-detail-body">
+                <div class="product-detail-image">
+                    <img id="detail-image" src="" alt="">
+                </div>
+                <div class="product-detail-info">
+                    <h2 id="detail-name"></h2>
+                    <p id="detail-desc"></p>
+                    <div class="product-detail-meta">
+                        <span id="detail-category"></span>
+                        <span id="detail-price"></span>
+                    </div>
+                    <button id="detail-close" type="button" class="detail-close">Đóng</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../model/product.js"></script>
+    <script src="../controller/productController.js"></script>
+    <script>
+        // Toggle mobile menu
+        (function () {
+            const btn = document.querySelector('.nav-toggle');
+            const links = document.querySelector('.nav-links');
+            if (!btn || !links) return;
+
+            btn.addEventListener('click', function () {
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', (!expanded).toString());
+                links.classList.toggle('open');
+            });
+        })();
+    </script>
+</body>
+</html>
