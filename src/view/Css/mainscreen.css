@@ -1,0 +1,26 @@
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;color:#222}
+
+.navbar{background:#0a74da;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.08)}
+.nav-container{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0.6rem 1rem}
+.nav-brand{color:#fff;text-decoration:none;font-weight:700;font-size:1.1rem}
+.nav-toggle{display:none;background:transparent;border:0;color:#fff;font-size:1.4rem;cursor:pointer}
+.nav-links ul{list-style:none;display:flex;gap:1rem;align-items:center}
+.nav-links a{color:#fff;text-decoration:none;padding:.45rem .6rem;border-radius:4px;display:inline-block}
+.nav-links a:hover{background:rgba(255,255,255,0.12)}
+
+/* Mobile styles */
+@media (max-width:768px){
+	.nav-toggle{display:block}
+	.nav-links{position:absolute;left:0;right:0;top:56px;background:#0a74da;overflow:hidden;max-height:0;transition:max-height .25s ease}
+	.nav-links.open{max-height:240px}
+	.nav-links ul{flex-direction:column;padding:0.5rem 1rem;gap:0.25rem}
+	.nav-links a{padding:.6rem .8rem}
+}
+
+/* Small adjustments for larger screens */
+@media (min-width:769px){
+	.nav-links{position:static}
+}
+
